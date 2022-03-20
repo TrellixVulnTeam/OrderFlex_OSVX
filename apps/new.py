@@ -7,12 +7,12 @@ def app():
     st.title('Data')
 
     st.write("This is the `Data` page of the multi-page app.")
-    
+
     form = st.form(key="annotation")
     with form:
-        cols = st.columns((1, 1))
-        author = cols[0].text_input("Report author:")
-        bug_type = cols[1].selectbox(
+        cols = st.columns((1,1,1))
+        author = cols[1].text_input("Report author:")
+        bug_type = cols[2].selectbox(
             "Bug type:", ["Front-end", "Back-end", "Data related", "404"], index=2
         )
         comment = st.text_area("Comment:")

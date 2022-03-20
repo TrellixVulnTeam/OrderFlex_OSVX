@@ -21,13 +21,15 @@ authenticator = stauth.Authenticate(names,usernames,hashed_passwords,
 
 with col2:
     name, authentication_status, username = authenticator.login('Login','main')
-    if authentication_status:
-        app.add_app("Home", home.app)
-        app.add_app("Nova Order de serviço", new.app)
-        app.add_app("Model", model.app)
-        app.run()
-    elif authentication_status == False:
-        st.error('Username/password is incorrect')
-    elif authentication_status == None:
-        st.warning('Please enter your username and password')
+
+    
+if authentication_status:
+    app.add_app("Home", home.app)
+    app.add_app("Nova Order de serviço", new.app)
+    app.add_app("Model", model.app)
+    app.run()
+elif authentication_status == False:
+    col2.error('Username/password is incorrect')
+elif authentication_status == None:
+    col2.warning('Please enter your username and password')
 
